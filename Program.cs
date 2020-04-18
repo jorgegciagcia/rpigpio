@@ -17,15 +17,20 @@ namespace rpi001
            
            sudo chmod 777 /dev/gpiomem
         */
-        public static int GPIO17=17;
-        static void Main(string[] args)
-        {
+
+       static void Main(string[] args)
+       {
+           UltrasonicSensor();
+       }
+       static void SingleLed ()
+       {
+           const int GPIO17 = 17;
             GpioController controller = new GpioController ();
             controller.OpenPin (GPIO17,PinMode.Output);
             int timeUp = 5000;
             int timeLow = 5000;
 
-            Console.WriteLine("Hello World!");
+            Console.WriteLine("Single Led");
             while(true)
            {
                Console.WriteLine("Line Up");
@@ -35,6 +40,16 @@ namespace rpi001
                controller.Write(GPIO17,PinValue.Low);
                Thread.Sleep(timeLow);
            } 
-        }
+       } 
+       static void UltrasonicSensor ()
+       {
+           const int Trigger = 21;
+           const int Echo = 20;
+           GpioController controller = new GpioController ();
+           controller.OpenPin (Trigger,PinMode.Output);
+           controller.OpenPin (Echo,PinMode.Input);
+           Console.WriteLine ("UltrasonicSensor.");
+           Console.WriteLine ($"Echo default signal:{controller.Read(Echo)} " );
+       } 
     }
 }
