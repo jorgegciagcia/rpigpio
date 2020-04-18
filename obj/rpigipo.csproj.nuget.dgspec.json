@@ -1,0 +1,68 @@
+{
+  "format": 1,
+  "restore": {
+    "/home/ubuntu/dev/rpi/rpigpio/rpigipo.csproj": {}
+  },
+  "projects": {
+    "/home/ubuntu/dev/rpi/rpigpio/rpigipo.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "/home/ubuntu/dev/rpi/rpigpio/rpigipo.csproj",
+        "projectName": "rpigipo",
+        "projectPath": "/home/ubuntu/dev/rpi/rpigpio/rpigipo.csproj",
+        "packagesPath": "/home/ubuntu/.nuget/packages/",
+        "outputPath": "/home/ubuntu/dev/rpi/rpigpio/obj/",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/ubuntu/.nuget/NuGet/NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp3.1"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp3.1": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp3.1": {
+          "dependencies": {
+            "Iot.Device.Bindings": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "System.Device.Gpio": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "/home/ubuntu/dotnet-arm64/sdk/3.1.102/RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

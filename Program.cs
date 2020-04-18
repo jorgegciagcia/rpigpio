@@ -2,6 +2,7 @@
 using System.Device.Gpio;
 using System.Threading;
 using System.Threading.Tasks;
+using rpigpio.src.hwd;
 
 namespace rpi001
 {
@@ -43,25 +44,19 @@ namespace rpi001
        } 
        static void UltrasonicSensor ()
        {
-           const int Trigger = 21;
-           const int Echo = 20;
-           GpioController controller = new GpioController ();
-           controller.OpenPin (Trigger,PinMode.Output);
-           controller.OpenPin (Echo,PinMode.Input);
-           Console.WriteLine ("UltrasonicSensor.");
-           Console.WriteLine ($"Echo default signal:{controller.Read(Echo)} " );
+           UltraSonicSensor sensor = new UltraSonicSensor(21,20,2000);
            while (true)
           {
-              controller.Write (Trigger,PinValue.Low);
-              Thread.Sleep(5);
-              controller.Write (Trigger.PinValue.High);
-              Thread.Sleep(10);
-              controller.Write (Trigger.PinValue.Low);
-              while (controller.Read(Echo)==PinValue.Low);
-              long startTicks = DateTime.Now.Ticks;
-              while (controller.Read(Echo)==PinValue.High);
-              long endTicks = DateTime.Now.Ticks;
-              
+              if ( sensor.ReadDistance() == false)
+             {
+                 Console.WriteLine("Error");
+             } 
+             else
+             {
+                  Console.WriteLine(String.Format("Milliseconds: {0:0.0000}",sensor.Milliseconds));
+                  Console.WriteLine(String.Format("Distance: {0:0.0} cm",sensor.Distance));
+                  Console.ReadLine();
+             }
           } 
        } 
     }

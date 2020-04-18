@@ -1660,9 +1660,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/ubuntu/dev/rpi/rpigpio/rpi001.csproj",
-      "projectName": "rpi001",
-      "projectPath": "/home/ubuntu/dev/rpi/rpigpio/rpi001.csproj",
+      "projectUniqueName": "/home/ubuntu/dev/rpi/rpigpio/rpigipo.csproj",
+      "projectName": "rpigipo",
+      "projectPath": "/home/ubuntu/dev/rpi/rpigpio/rpigipo.csproj",
       "packagesPath": "/home/ubuntu/.nuget/packages/",
       "outputPath": "/home/ubuntu/dev/rpi/rpigpio/obj/",
       "projectStyle": "PackageReference",
