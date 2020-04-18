@@ -50,6 +50,19 @@ namespace rpi001
            controller.OpenPin (Echo,PinMode.Input);
            Console.WriteLine ("UltrasonicSensor.");
            Console.WriteLine ($"Echo default signal:{controller.Read(Echo)} " );
+           while (true)
+          {
+              controller.Write (Trigger,PinValue.Low);
+              Thread.Sleep(5);
+              controller.Write (Trigger.PinValue.High);
+              Thread.Sleep(10);
+              controller.Write (Trigger.PinValue.Low);
+              while (controller.Read(Echo)==PinValue.Low);
+              long startTicks = DateTime.Now.Ticks;
+              while (controller.Read(Echo)==PinValue.High);
+              long endTicks = DateTime.Now.Ticks;
+              
+          } 
        } 
     }
 }
